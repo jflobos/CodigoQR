@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Envio de Invitaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+<div id="ourCompany-bg"  style="padding:50px; border-bottom:40px;">
+<br />
+<h2>Envio de Invitaciones</h2>
+<br />
+<ul>
+<li type=square>Enviar Email  <a href="@Url.Action("EnviarEmail", "Home")" title="Administrar Eventos" ><img src="@Url.Content("~/Content/images/email.png")" width="20" height="20" alt="Editar/Eliminar Eventos" /></a></li>
+<li type=square>Editar Invitacion <a href="@Url.Action("EditarInvitacion", "Home")" title="Administrar Eventos" ><img src="@Url.Content("~/Content/images/edit.png")" width="20" height="20" alt="Añadir Eventos" /></a></li>
+</ul>
+
+</div></div>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Administrar Eventos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+<div id="ourCompany-bg"  style="padding:50px; border-bottom:40px;">
+<br />
+<h2>Administrar Eventos</h2>
+<br />
+<ul>
+<li type=square>Editar/Eliminar Eventos   <a href="@Url.Action("EditarEventos", "Home")" title="Administrar Eventos" ><img src="@Url.Content("~/Content/images/edit.png")" width="20" height="20" alt="Editar/Eliminar Eventos" /></a></li>
+<li type=square>Añadir Eventos   <a href="@Url.Action("IngresarEventos", "Home")" title="Administrar Eventos" ><img src="@Url.Content("~/Content/images/plus.png")" width="20" height="20" alt="Añadir Eventos" /></a></li>
+</ul>
+
+</div>
+</div>
