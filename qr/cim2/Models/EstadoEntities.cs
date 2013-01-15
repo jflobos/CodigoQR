@@ -19,7 +19,7 @@ namespace qr.Models
         public List<Estado> getEstados()
         {
             var todos = (from estado in Estados
-                         orderby estado.nombre descending                         
+                         orderby estado.Id ascending                         
                          select estado);
             return todos.ToList();
         }
@@ -63,6 +63,8 @@ namespace qr.Models
             
             return c;
         }
+
+       
 
     }
 }

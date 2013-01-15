@@ -1,4 +1,6 @@
-﻿@{
+﻿@model qr.Models.Evento
+
+@{
     ViewBag.Title = "Estadisticas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,6 +9,24 @@
 <br />
 <h2>Estadisticas</h2>
 <br />
+    <form action="" method="post" enctype="multipart/form-data" runat="server">
 
+       
+
+    <select id="Evento" name="Evento">
+    @foreach (var p in ViewBag.eventos)
+    {
+        
+        
+        <option value="@p.Id">@p.nombre</option>
+
+
+       
+       
+    }
+         </select>
+        <br />
+        <input type="submit" class="btn" value="Consultar"/>
+        </form>
 </div>
 </div>

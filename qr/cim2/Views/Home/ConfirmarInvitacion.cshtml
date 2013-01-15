@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "ConfirmarInvitacion";
+}
+
+<html><head>
+    
+<h2>ConfirmarInvitacion</h2>
+<title>ConfirmarInvitacion</title>
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css">
+</head>
+<body>
+    @{
+    var link = @Url.Action("Acreditar", "Home", new { idinv = @ViewBag.invitacio.Id});
+    var linkfinal = "https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=" +"http://localhost:58000"+ link;
+}
+
+
+    <p>
+    Gracias @ViewBag.invitacio.nombre @ViewBag.invitacio.apellido por confirmar tu participacion, 
+    a continuacion esta tu invitacion para poder acreditarte de forma express al llegar al evento.
+</p>
+
+    <p>
+    Nombre evento:  @ViewBag.evento.nombre <br />
+    Lugar: @ViewBag.evento.nombre <br />
+    Inicio: @ViewBag.evento.inicio<br />
+    Termino:@ViewBag.evento.termino <br />
+    Codigo: <img src="@linkfinal" alt=""  width="200" height="200" />
+   </p>
+
+
+
+   </body></html>

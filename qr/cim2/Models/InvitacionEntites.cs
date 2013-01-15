@@ -66,5 +66,18 @@ namespace qr.Models
             
             return c;
         }
+
+        public List<Invitacion> estadiscticabase(int id)
+        {
+            var todos = (from invitacion in Invitaciones
+                         where invitacion.evento_id==id
+                         orderby invitacion.estado_id ascending
+                         select invitacion);
+            
+           
+
+            return todos.ToList();
+        }
+     
     }
 }

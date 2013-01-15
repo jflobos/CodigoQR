@@ -68,8 +68,64 @@ namespace qr.Controllers
         [Authorize]
         public ActionResult Estadisticas()
         {
+            EventoEntities evEtn = new EventoEntities();
+
+            List<Evento> list = evEtn.getEventos();
+            ViewBag.eventos = list;
+
             return View();
         }
+
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Estadisticas(string Evento)
+        {
+            InvitacionEntities invent = new InvitacionEntities();
+            EstadoEntities est= new EstadoEntities();
+            EventoEntities eventoEnt=new EventoEntities();
+            List<Invitacion> lsita = invent.estadiscticabase(int.Parse(Evento));
+            List<Estado> listaestados = est.getEstados();
+
+            Dictionary<int, string> estados = new Dictionary<int, string>();
+
+            foreach (Estado estado in listaestados)
+            {
+                estados.Add(estado.Id, estado.nombre);
+            }
+
+
+            Dictionary<string, int> estadis = new Dictionary<string, int>();
+
+            foreach(Estado esta in listaestados){
+
+                estadis.Add(esta.nombre, 0);
+
+            }
+
+            foreach (Invitacion invita in lsita)
+            {
+
+                if (estadis.ContainsKey(estados[invita.estado_id]))
+                {
+                    int total= estadis[estados[invita.estado_id]] + 1;
+                    estadis[estados[invita.estado_id]] = total;
+
+                }
+                else
+                {
+                    estadis.Add(estados[invita.estado_id], 1);
+                }
+
+            }
+
+            ViewBag.evento = eventoEnt.getOneEvento(int.Parse(Evento)).nombre;
+            ViewBag.est = estadis;
+            int a = 0;
+            
+            return View("VerEstadistica");
+        }
+
         [HttpGet]
         [Authorize]
         public ActionResult EnviarInvitaciones()
@@ -78,15 +134,77 @@ namespace qr.Controllers
         }
 
         [HttpGet]
+        [Authorize]
+        public ActionResult ConfirmarInvitacion(string idinvi,string estadoel)
+        {
+            int idinv = int.Parse(idinvi);
+            int estado = int.Parse(estadoel);
+            InvitacionEntities invEnt= new InvitacionEntities();
+            Invitacion invi = invEnt.getOneInvitacion(idinv);
+
+            invi.estado_id = estado;
+            invEnt.UpdateInvitacion(invi);
+
+            EventoEntities evenEnt = new EventoEntities();
+
+            Evento evento = evenEnt.getOneEvento(invi.evento_id);
+
+            ViewBag.evento = evento;
+            ViewBag.invitacio = invi;
+
+            if (estado == 2)
+            {
+                return View();
+            }
+            if (estado == 3)
+            {
+                return View("Respuesta");
+            }
+            if (estado == 4)
+            {
+                return View("Respuesta");
+            }
+
+            return View("Respuesta");
+
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Acreditar(string idinv)
+        {
+            int id = int.Parse(idinv);
+            InvitacionEntities invEnt = new InvitacionEntities();
+            Invitacion invit = invEnt.getOneInvitacion(id);
+
+            invit.estado_id = 5;
+            invEnt.UpdateInvitacion(invit);
+
+            ViewBag.invit = invit;
+
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Respuesta()
+        {
+            return View();
+        }
+    
+
+
+        [HttpGet]
         public ActionResult TestIcal()
         {
             DDay.iCal.iCalendar calendario = new DDay.iCal.iCalendar();
             DDay.iCal.Event evento = calendario.Create<DDay.iCal.Event>();
             evento.Start = new DDay.iCal.iCalDateTime(System.DateTime.Now);
-            evento.Summary = "Presentacion Demo";
+             evento.Summary = "Presentacion Demo";
             evento.End = new DDay.iCal.iCalDateTime(System.DateTime.Now).AddHours(2);
-            //evento.GeographicLocation = new DDay.iCal.GeographicLocation(-33.372909, -70.581080);            
-            DDay.iCal.Serialization.iCalendar.iCalendarSerializer serializer = new DDay.iCal.Serialization.iCalendar.iCalendarSerializer(calendario);
+            evento.GeographicLocation = new DDay.iCal.GeographicLocation(-33.372909, -70.581080);            
+             DDay.iCal.Serialization.iCalendar.iCalendarSerializer serializer = new DDay.iCal.Serialization.iCalendar.iCalendarSerializer(calendario);
             String ruta = Server.MapPath("..\\Content\\Eventos\\");
             serializer.Serialize(ruta+"filename.ics");
             return View();

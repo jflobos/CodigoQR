@@ -44,17 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="antlr.runtime">
-      <HintPath>..\..\..\..\..\Desktop\antlr.runtime.dll</HintPath>
-    </Reference>
     <Reference Include="DDay.Collections">
-      <HintPath>..\..\..\..\..\Desktop\DDay.Collections.dll</HintPath>
+      <HintPath>dll\DDay.Collections.dll</HintPath>
     </Reference>
     <Reference Include="DDay.iCal">
-      <HintPath>..\..\..\..\..\Desktop\DDay.iCal.dll</HintPath>
+      <HintPath>dll\DDay.iCal.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Pagina Cim\cim2\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -122,6 +119,7 @@
     <Content Include="Scripts\carusel\jquery.contentcarousel.js" />
     <Content Include="Scripts\carusel\jquery.easing.1.3.js" />
     <Content Include="Scripts\carusel\jquery.mousewheel.js" />
+    <Content Include="Scripts\flotr2.min.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -183,6 +181,10 @@
     <Content Include="Views\Home\Estadisticas.cshtml" />
     <Content Include="Views\Home\Informacion.cshtml" />
     <Content Include="Views\Home\TestIcal.cshtml" />
+    <Content Include="Views\Home\VerEstadistica.cshtml" />
+    <Content Include="Views\Home\ConfirmarInvitacion.cshtml" />
+    <Content Include="Views\Home\Respuesta.cshtml" />
+    <Content Include="Views\Home\Acreditar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
