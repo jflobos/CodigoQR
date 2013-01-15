@@ -178,10 +178,14 @@ namespace qr.Controllers
             InvitacionEntities invEnt = new InvitacionEntities();
             Invitacion invit = invEnt.getOneInvitacion(id);
 
+            EventoEntities evenEnt = new EventoEntities();
+            Evento evento = evenEnt.getOneEvento(invit.evento_id);
+
             invit.estado_id = 5;
             invEnt.UpdateInvitacion(invit);
 
             ViewBag.invit = invit;
+            ViewBag.evento = evento;
 
             return View();
         }

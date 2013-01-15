@@ -2,6 +2,41 @@
     ViewBag.Title = "Acreditar";
 }
 
-<h2>Acreditar</h2>
-
-@ViewBag.invit.nombre @ViewBag.invit.apellido fue correctamente acreditado.
+<div id="contenedor" style="width: 900px; height: 400px; margin-left: auto; margin-right: auto;padding: 20px; margin-top: 100px;">        
+        <div id="invitacion" style="width: 700px; height: 350px; margin-left: auto; margin-right: auto; padding: 10px; margin-top: 20px; border: solid #777 2px;">
+            <div>
+                <div style="float: left;">
+                    <h3>Acreditación</h3>
+                </div>
+                <div style="float: right;">
+                    <img src="@Url.Content("~/Content/images/fundacion-logo.png")" alt="Fundacion Logo"/>
+                </div>
+            </div>
+            <div style="height: 1px; width: 1px; clear:both;"></div>
+            <div>
+                <div style="float: left; width: 300px;">
+                    <h4><i class="icon-ok"></i> @ViewBag.invit.nombre @ViewBag.invit.apellido fue correctamente acreditado.</h4>
+                </div>
+                <div style="width: 300px; margin-left: auto; margin-right: auto; margin-top: 20px; float: right;">
+                    <table class="table">
+                        <tr>
+                            <th>Nombre evento</th>
+                            <td>@ViewBag.evento.nombre</td>
+                        </tr>
+                        <tr>
+                            <th>Lugar</th>
+                            <td>@ViewBag.evento.lugar</td>
+                        </tr>
+                        <tr>
+                            <th>Inicio</th>
+                            <td>@ViewBag.evento.inicio</td>
+                        </tr>
+                        <tr>
+                            <th>Termino</th>
+                            <td>@ViewBag.evento.termino</td>
+                        </tr>
+                    </table>
+                </div>            
+            </div>
+        </div>        
+    </div>

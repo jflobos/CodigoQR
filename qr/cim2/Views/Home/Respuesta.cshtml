@@ -2,6 +2,41 @@
     ViewBag.Title = "Respuesta";
 }
 
-<h2>Respuesta</h2>
-
-Hemos recibido tu respuesta a la invitacion,  muchas gracias.
+<h2>Estado de Invitación</h2>
+<div id="contenedor" style="width: 900px; height: 400px; margin-left: auto; margin-right: auto;padding: 20px;">
+        <div id="mensaje">
+            <b>Gracias @ViewBag.invitacio.nombre @ViewBag.invitacio.apellido al contestar la invitación,
+                agradecemos tu respuesta y aprovechamos de recordarte que aún puedes confirmar tu participación en el evento.
+            </b>
+        </div>
+        <div id="invitacion" style="width: 700px; height: 350px; margin-left: auto; margin-right: auto; padding: 10px; margin-top: 20px; border: solid #777 2px;">
+            <div>
+                <div style="float: left;">
+                    <h3>Datos del evento</h3>
+                </div>
+                <div style="float: right;">
+                    <img src="@Url.Content("~/Content/images/fundacion-logo.png")" alt="Fundacion Logo"/>
+                </div>
+            </div>
+            <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 20px;">
+                <table class="table">
+                    <tr>
+                        <th>Nombre evento</th>
+                        <td>@ViewBag.evento.nombre</td>
+                    </tr>
+                    <tr>
+                        <th>Lugar</th>
+                        <td>@ViewBag.evento.lugar</td>
+                    </tr>
+                    <tr>
+                        <th>Inicio</th>
+                        <td>@ViewBag.evento.inicio</td>
+                    </tr>
+                    <tr>
+                        <th>Termino</th>
+                        <td>@ViewBag.evento.termino</td>
+                    </tr>
+                </table>
+            </div>            
+        </div>        
+    </div>

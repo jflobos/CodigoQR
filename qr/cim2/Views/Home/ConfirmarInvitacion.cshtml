@@ -14,7 +14,47 @@
     var linkfinal = "https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=" +"http://localhost:58000"+ link;
 }
 
-
+    <div id="contenedor" style="width: 900px; height: 400px; margin-left: auto; margin-right: auto;padding: 20px;">
+        <div id="mensaje">
+            <b>Gracias @ViewBag.invitacio.nombre @ViewBag.invitacio.apellido por confirmar tu participacion, 
+    a continuacion esta tu invitacion para poder acreditarte al llegar al evento.</b>
+        </div>
+        <div id="invitacion" style="width: 700px; height: 350px; margin-left: auto; margin-right: auto; padding: 10px; margin-top: 20px; border: solid #777 2px;">
+            <h3>Datos de Invitación</h3>
+            <div style="float: left; margin-top: 50px;">
+                <table class="table">
+                    <tr>
+                        <th>Nombre evento</th>
+                        <td>@ViewBag.evento.nombre</td>
+                    </tr>
+                    <tr>
+                        <th>Lugar</th>
+                        <td>@ViewBag.evento.lugar</td>
+                    </tr>
+                    <tr>
+                        <th>Inicio</th>
+                        <td>@ViewBag.evento.inicio</td>
+                    </tr>
+                    <tr>
+                        <th>Termino</th>
+                        <td>@ViewBag.evento.termino</td>
+                    </tr>
+                </table>
+            </div>
+            <div style="float: left; margin-left: 10px;">
+                <div style="font-size: 14px; margin-bottom: 20px;"><b>Codigo:</b></div>
+                <img src="@linkfinal" alt="qr_invitacion"  width="200" height="200" />
+            </div>
+        </div>
+        <div style="width: 700px;">            
+            <div id="botones" class="btn-group" style="margin-left: 368px;">            
+                <button class="btn"><i class="icon-download-alt"></i>Descargar Invitación</button>
+                <button class="btn"><i class="icon-user"></i> Invitar Amigos</button>
+                <button class="btn"><i class="icon-calendar"></i> Agendar evento</button>            
+            </div>
+        </div>
+    </div>
+    <!--
     <p>
     Gracias @ViewBag.invitacio.nombre @ViewBag.invitacio.apellido por confirmar tu participacion, 
     a continuacion esta tu invitacion para poder acreditarte de forma express al llegar al evento.
@@ -27,7 +67,7 @@
     Termino:@ViewBag.evento.termino <br />
     Codigo: <img src="@linkfinal" alt=""  width="200" height="200" />
    </p>
-
+        -->
 
 
    </body></html>
